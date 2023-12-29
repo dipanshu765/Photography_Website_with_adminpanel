@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+	<!-- Hero section -->
+	<section class="hero-section">
+		<div class="hero-slider owl-carousel">
+		  {% for content in contents %}
+            <div class="hero-item">
+				<div class="hero-text">
+					<div class="ht-cata">{{ content.category }}</div>
+					<h2>{{ content.title }}</h2>
+					<p>{{ content.description }}</p>
+					<a href="#" class="ht-btn">See More <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+				<div class="hi-bg set-bg" data-setbg="{{ content.image.url }}"></div>
+			</div>
+          {% endfor %}
+		</div>
+	</section>
+	<!-- Hero section end -->
+{% endblock %}
