@@ -18,7 +18,9 @@
 			</div>
           {% endfor %}
 		</div>
-
+        <div class="row">
+         <div class="col-md-12" style="align-content: center">
+          {% if page_obj.has_other_pages %}
 			<!-- Pagination links -->
             <div class="pagination">
                 <span class="step-links">
@@ -35,6 +37,9 @@
                     {% endif %}
                 </span>
             </div>
+          {% endif %}
+         </div>
+        </div>
 
 	</section>
 	<!-- Gallery section end -->

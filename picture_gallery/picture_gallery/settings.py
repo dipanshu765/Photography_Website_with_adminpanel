@@ -27,12 +27,13 @@ SECRET_KEY = 'django-insecure-9hvo8qlx+aa1hvp05^8d7s$apztm$o=dd!)j5+*cy-^rkqfcn!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'api',
     'pages',
     'blog',
     'contact',
@@ -42,9 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
+    'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -55,6 +59,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'picture_gallery.urls'
+
+
+ALLOWED_ORIGINS = ['*']
+
 
 TEMPLATES = [
     {
