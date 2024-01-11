@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+	<section class="blog-single-section">
+		<div class="blog-single-header set-bg" data-setbg="{{ blog.image.url }}">
+			<div class="container">
+				<div class="fb-cata">{{ blog.category }}</div>
+				<h2>{{ blog.title }}</h2>
+				<div class="bs-metas">
+					<div class="bs-meta">By Dipanshu</div>
+					<div class="bs-meta">February 21, 2019</div>
+					<div class="bs-meta">No Comments</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 m-auto blog-content">
+                    <p>{{ blog.description }}</p>
+
+                    <div class="col-lg-6 mb-5 text-left text-md-right">
+                        <div class="post-share">
+                            <span>Share:</span>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+	</section>
+
+{% endblock %}

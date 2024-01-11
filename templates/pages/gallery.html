@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+	<!-- Gallery section -->
+	<section class="gallery-section">
+		<div class="row gallery-gird">
+          {% for x in page_obj %}
+			<div class="col-lg-4 col-xl-3 col-sm-6">
+				<a class="gallery-item fresco" href="{{ x.image.url }}" data-fresco-group="projects">
+					<img src="{{x.image.url}}" alt="">
+					<div class="gi-text">
+						<h4>{{ x.name }}</h4>
+						<p>{{ x.category }}</p>
+					</div>
+				</a>
+			</div>
+          {% endfor %}
+		</div>
+        <div class="row">
+         <div class="col-md-12" style="align-content: center">
+          {% if page_obj.has_other_pages %}
+			<!-- Pagination links -->
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    {% endif %}
+                </span>
+            </div>
+          {% endif %}
+         </div>
+        </div>
+
+	</section>
+	<!-- Gallery section end -->
+
+{% endblock %}
